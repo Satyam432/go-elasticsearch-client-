@@ -1,0 +1,69 @@
+// type CountingTransport struct {
+// 	count uint64
+// }
+
+// type ElasticSearch struct {
+// 	client *elasticsearch.Client
+// 	index  string
+// 	alias  string
+// }
+
+// func (t *CountingTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+// 	var b bytes.Buffer
+
+// 	atomic.AddUint64(&t.count, 1)
+
+// 	req.Header.Set("Accept", "application/yaml")
+// 	req.Header.Set("X-Request-ID", "foo-123")
+
+// 	res, err := http.DefaultTransport.RoundTrip(req)
+
+// 	b.WriteString(strings.Repeat("-", 80) + "\n")
+// 	fmt.Fprintf(&b, "%s %s", req.Method, req.URL.String())
+
+// 	//Convert bytes to JSON
+// 	// err = json.Unmarshal([]byte(Logobject), &objmap)
+// 	// if err != nil {
+// 	// 	log.Fatal(err.Error())
+// 	// }
+
+// 	if err == nil {
+// 		fmt.Fprintf(&b, " [%s] %s\n", res.Status, res.Header.Get("Content-Type"))
+// 	} else {
+// 		fmt.Fprintf(&b, "ERROR: %s\n", err)
+// 	}
+
+// 	b.WriteTo(os.Stdout)
+
+// 	return res, err
+// }
+
+// func main() {
+
+// 	//var wg sync.WaitGroup
+
+// 	// Create the custom transport.
+// 	tp := CountingTransport{}
+
+// 	// Pass the custom transport to the client.
+// 	cfg := elasticsearch.Config{
+// 		Addresses: []string{"http://3.6.144.248:9200"},
+// 		Transport: &tp,
+// 	}
+
+// 	es, err := elasticsearch.NewClient(cfg)
+// 	if err != nil {
+// 		log.Printf("Error creating the client: %s", err)
+// 	} else {
+// 		log.Println(es.Info())
+// 		// => dial tcp: i/o timeout
+// 	}
+
+// 	var appPort = os.Getenv("appPort")
+
+// 	routes.SetupServer(appPort)
+// }
+
+
+____________________________________________
+
