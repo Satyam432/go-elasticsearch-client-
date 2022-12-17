@@ -217,7 +217,7 @@ func Loggerforresponse(loggingresobj map[string]interface{}) {
 
 func GetESClient() (*elastic.Client, error) {
 	client, err := elastic.NewClient(
-		elastic.SetURL("https://KibanDrife:d0jpG20l1232wwZ@elasticsearch.drife.io"),
+		elastic.SetURL("xyz"),
 		elastic.SetSniff(false),
 		elastic.SetHealthcheck(false))
 
